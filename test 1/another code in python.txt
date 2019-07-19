@@ -1,0 +1,64 @@
+Throughput = No of bytes/ Time
+
+
+
+
+As per the dataset:
+
+1st line-?  Throughput = 435/ 0.326 = 1334.35 (1.3 KBPS)
+Upto 9 lines throughput is zero
+10th line-? Throughput = 302932/0.504=601055.556 
+11th line-? Throughput = 33494/0.006= calculate and confirm for all these
+12th line-? Throughput = 603522/ 2.892=
+13th line? Throughput =33526 /0.007= 
+14th line-? Throughput= 796672/2.170=
+15th line-? Throughput=33528 /0.029=
+17th line-? Throughput=707542 /0.470=
+18th line-? Throughput= 460289/ 0.633=
+20th line-? Throughput= 850334 /0.756=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+we have to add dataset in csv file.
+
+Python code
+
+Assumption( If this is in throughput.csv file)
+
+import csv
+
+source = {}
+with open('throughput.csv', 'rb') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    next(csvreader , None) #  skip line
+    next(csvreader , None) #  skip line
+    for row in csvreader:
+        if row[6] != “435”:
+            continue
+        data_country = row[0]
+        data_ ASN= row[1].split('_')[0]
+        data_ Time stamp= row[2]
+        data_MetricA= row[3]
+        data_coserver= row[4]
+        data_bytes=row[5]
+        data_send/time = float(row[7])
+
+    for k_country in source:
+              for k_coserver in scource[k_country][k_ASN][k_Timestamp][k_metricA]:
+                throughput = source[k_Bytes]/[k_send/Time]
+                average = ( sum(throughput) / len(throughput) )
+                print(‘%s’, %(average))
+
